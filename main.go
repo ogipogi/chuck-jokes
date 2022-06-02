@@ -21,7 +21,6 @@ func main() {
 	randomJoke := &Joke{}
 	url := "http://api.icndb.com/jokes/"
 	api := gopencils.Api(url)
-
 	http.HandleFunc("/joke", func(w http.ResponseWriter, r *http.Request) {
 		api.Res("random", randomJoke).Get()
 		fmt.Fprintf(w, html.UnescapeString(randomJoke.Value.Joke))
