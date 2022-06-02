@@ -3,18 +3,18 @@
 FROM golang:1.18.1-alpine AS builder
 
 ARG VERSION=dev
+
 ## We create an /app directory within our
 ## image that will hold our application source
 ## files
 RUN mkdir /app
 ## We copy everything in the root directory
 ## into our /app directory
-ADD . /a
+ADD . /app
 ## We ecify that we now wish to execute
 ## any further commands inside our /app
 ## directory
 WORKDIR /app
-ENV PATH="/go/bin:${PATH}"
 ## Add this go mod download command to pull in any dependencies
 RUN go mod download
 ## we run go build to compile the binary
