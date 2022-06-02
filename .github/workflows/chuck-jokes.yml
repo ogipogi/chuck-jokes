@@ -2,8 +2,7 @@ name: Simple Job
 
 on:
   push:
-    branches:
-      - master
+    branches: master
 jobs:
   Hello:
     runs-on: ubuntu-20.04
