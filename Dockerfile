@@ -2,6 +2,7 @@
 ## go application
 FROM golang:1.18.1-alpine AS builder
 
+ARG VERSION=dev
 ## We create an /app directory within our
 ## image that will hold our application source
 ## files
@@ -19,7 +20,7 @@ RUN go mod download
 ## we run go build to compile the binary
 ## executable of our Go program
 
-RUN go build -o main .
+RUN go build -o main -ldflags=-X=main.version=${VERSION} main.go
 
 FROM alpine:latest as production
 
