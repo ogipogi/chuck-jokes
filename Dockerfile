@@ -14,7 +14,7 @@ ADD . /a
 ## any further commands inside our /app
 ## directory
 WORKDIR /app
-
+ENV PATH="/go/bin:${PATH}"
 ## Add this go mod download command to pull in any dependencies
 RUN go mod download
 ## we run go build to compile the binary
