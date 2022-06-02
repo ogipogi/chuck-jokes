@@ -4,13 +4,14 @@ FROM golang:1.18.1-alpine AS builder
 
 ARG VERSION=dev
 
+WORKDIR /go/src/app
 ## We create an /app directory within our
 ## image that will hold our application source
 ## files
-RUN mkdir /app
+
 ## We copy everything in the root directory
 ## into our /app directory
-ADD . /app
+
 ## We ecify that we now wish to execute
 ## any further commands inside our /app
 ## directory
