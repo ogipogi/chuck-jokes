@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "##[set-output name=version;]VERSION=${GITHUB_REF#$"refs/tags/v"}"
           echo "##[set-output name=version_tag;]gfelline/chuck-jokes:${GITHUB_REF#$"refs/tags/v"}"
-          echo "##[set-output name=latest_tag;]gfelline/chuck-jokes$GITHUB_REPOSITORY:latest"
+          echo "##[set-output name=latest_tag;]gfelline/chuck-jokes:latest"
 
       - name: Print Version
         run: |
