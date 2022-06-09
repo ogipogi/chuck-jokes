@@ -63,20 +63,5 @@ jobs:
     steps:
       - name: Configure SSH
         run: |
-          mkdir -p ~/.ssh/
-          echo "$SSHKEY" > ~/.ssh/staging.key
-          chmod 600 ~/.ssh/staging.key
-          cat >>~/.ssh/config <<END
-          Host staging
-            HostName $HOST
-            User $HOST_USERNAME
-            IdentityFile ~/.ssh/staging.key
-            StrictHostKeyChecking no
-          END
-        env:
-          SSH_USER: ${{ secrets.STAGING_SSH_USER }}
-          SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
-          SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
-
-      - name: create a file
-        run: ssh staging 'touch test.txt'
+          ssh ip172-18-0-52-caguvis33d5g00d0np00@direct.labs.play-with-docker.com
+          touch test.txt
