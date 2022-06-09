@@ -81,4 +81,4 @@ jobs:
             touch test.txt
           host: ${{ secrets.HOST }}
           user: ${{ secrets.USERNAME }}
-          #key: ${{ secrets.SSHKEY}}
+          key: ${{ secrets.SSHKEY}}
