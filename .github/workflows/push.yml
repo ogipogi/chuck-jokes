@@ -80,4 +80,5 @@ jobs:
             docker run -d \
             --restart always \
             -p 8080:8081 \
-            --name gfelline/chuck-jokes \
+            --name chuck-jokes \
+            gfelline/chuck-jokes
