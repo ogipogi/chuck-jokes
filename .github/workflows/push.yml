@@ -18,8 +18,8 @@ jobs:
         id: version_step
         run: |
           echo "##[set-output name=version;]VERSION=${GITHUB_REF#$"refs/tags/v"}"
-          echo "##[set-output name=version_tag;]ogipogi:${GITHUB_REF#$"refs/tags/v"}"
-          echo "##[set-output name=latest_tag;]ogipogi:latest"
+          echo "##[set-output name=version_tag;]ogipogi/$GITHUB_REPOSITORY:${GITHUB_REF#$"refs/tags/v"}"
+          echo "##[set-output name=latest_tag;]ogipogi/$GITHUB_REPOSITORY:latest"
 
       - name: Print Version
         run: |
