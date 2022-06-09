@@ -43,6 +43,7 @@ jobs:
         run: |
           echo VERSION_TAG=$(echo ${{ steps.version_step.outputs.version_tag }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
           echo LASTEST_TAG=$(echo ${{ steps.version_step.outputs.latest_tag  }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+          echo IMAGE_NAME=$(echo ${{ steps.version_step.outputs.latest_tag  }} | cut -d "/" -f 2 | cut -d ":" -f 1) >> $GITHUB_ENV
 
       - name: Build and push
         id: docker_build
@@ -66,7 +67,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY }}
-          envs: VERSION_TAG
+          envs: IMAGE_NAME
           script: |
             # Login to registry
             #docker login -u ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} -p ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} registry.digitalocean.com
@@ -77,8 +78,4 @@ jobs:
             #docker rm $(echo $IMAGE_NAME)
             docker rm gfelline/chuck-jokes
             # Run a new container from a new image
-            docker run -d \
-            --restart always \
-            -p 8080:8081 \
-            --name chuck-jokes \
-            gfelline/chuck-jokes
+            docker run -d --restart always -p 8080:8081 --name chuck-jokes gfelline/chuck-jokes
