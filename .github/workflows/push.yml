@@ -66,6 +66,6 @@ jobs:
         with:
           host: direct.labs.play-with-docker.com
           username: ip172-18-0-52-caguvis33d5g00d0np00
-          password: secret
+          key: ${{ secrets.SSH_KEY }}
           port: 22
           script: whoami
