@@ -64,8 +64,14 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: direct.labs.play-with-docker.com
-          username: ip172-18-0-52-caguvis33d5g00d0np00
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.HOST_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
-          script: whoami
+          script: |
+            # Stop running container
+            docker stop chuck-jokes
+            # Remove old container
+            docker rm chuck-jokes
+            # Run a new container from a new image
+            docker run -d --restart always -p 8080:8081 --name chuck-jokes gfelline/chuck-jokes
