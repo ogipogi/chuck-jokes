@@ -64,8 +64,8 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.HOST_USERNAME }}
+          host: 185.185.82.191
+          username: root
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: docker run -d --restart always --rm -p 8080:8081 --name chuck-jokes gfelline/chuck-jokes
