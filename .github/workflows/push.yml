@@ -70,8 +70,8 @@ jobs:
           port: 22
           script: |
             # Stop running container
-            docker stop chuck-jokes
+            #docker stop chuck-jokes
             # Remove old container
-            docker rm chuck-jokes
+            #docker rm chuck-jokes
             # Run a new container from a new image
             docker run -d --restart always -p 8080:8081 --name chuck-jokes gfelline/chuck-jokes
