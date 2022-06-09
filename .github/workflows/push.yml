@@ -80,4 +80,4 @@ jobs:
             docker run -d \
             --restart always \
             -p 8080:8081 \
-            --name $(echo $VERSION_TAG) \
+            --name gfelline/chuck-jokes \
