@@ -68,10 +68,4 @@ jobs:
           username: ${{ secrets.HOST_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
-          script: |
-            # Stop running container
-            #docker stop chuck-jokes
-            # Remove old container
-            #docker rm chuck-jokes
-            # Run a new container from a new image
-            docker run -d --restart always -p 8080:8081 --name chuck-jokes gfelline/chuck-jokes
+          script: docker run -d --restart always --rm -p 8080:8081 --name chuck-jokes gfelline/chuck-jokes
