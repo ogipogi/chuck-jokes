@@ -65,6 +65,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
           envs: env.VERSION_TAG
           script: |
             # Login to registry
