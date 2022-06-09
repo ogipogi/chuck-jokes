@@ -73,7 +73,7 @@ jobs:
             #docker login -u ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} -p ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} registry.digitalocean.com
             # Stop running container
             #docker stop $(echo $IMAGE_NAME)
-            docker stop chuck-jokes
+            #docker stop chuck-jokes
             # Remove old container
             #docker rm $(echo $IMAGE_NAME)
             docker rm gfelline/chuck-jokes
