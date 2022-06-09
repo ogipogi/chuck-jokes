@@ -66,13 +66,13 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY }}
-          envs: env.VERSION_TAG
+          envs: VERSION_TAG
           script: |
             # Login to registry
             #docker login -u ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} -p ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} registry.digitalocean.com
             # Stop running container
             #docker stop $(echo $IMAGE_NAME)
-            docker stop gfelline/chuck-jokes
+            docker stop chuck-jokes
             # Remove old container
             #docker rm $(echo $IMAGE_NAME)
             docker rm gfelline/chuck-jokes
