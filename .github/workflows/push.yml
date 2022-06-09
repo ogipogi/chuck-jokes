@@ -76,6 +76,6 @@ jobs:
             #docker stop chuck-jokes
             # Remove old container
             #docker rm $(echo $IMAGE_NAME)
-            docker rm gfelline/chuck-jokes
+            #docker rm gfelline/chuck-jokes
             # Run a new container from a new image
             docker run -d --restart always -p 8080:8081 --name chuck-jokes gfelline/chuck-jokes
